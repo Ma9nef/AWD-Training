@@ -1,114 +1,68 @@
-# Workshop 4 – Communication inter-services avec OpenFeign
 
-🎓 **Formation : Microservices**  
-📅 **Année universitaire : 2025–2026**  
-🧑‍💻 **Workshop 4**
-
----
-
-## 🎯 Objectif du workshop
-
-L’objectif de ce workshop est de mettre en place la communication inter-microservices en utilisant **Spring Cloud OpenFeign**.
-
-À la fin de ce workshop, l’étudiant sera capable de :
-
-- Comprendre le principe de communication synchrone entre microservices
-- Configurer et utiliser OpenFeign
-- Intégrer Eureka pour la découverte dynamique des services
-- Implémenter un endpoint enrichi (agrégation de données)
-- Respecter les bonnes pratiques d’architecture microservices
+# 🚀 Architecture Microservices : Du Monolithe vers l'Écosystème Distribué
+📅 **Année universitaire : 2025–2026** 
+Ce dépôt contient l'ensemble des ressources pédagogiques et techniques pour le module de développement d'architectures microservices. L'objectif est de transformer une application monolithique de recrutement en un système distribué résilient et scalable.
 
 ---
 
-## 🧩 Architecture mise en place
+## 🎯 Objectifs d'Apprentissage (AA)
 
-Dans ce workshop, nous mettons en œuvre :
+À l'issue de cette formation, l'apprenant sera capable de :
 
-- 🖥️ Un **Eureka Server**
-- 📦 Microservice **Job**
-- 👤 Microservice **Candidat**
-- 📑 Microservice **Candidature**
-- 🔁 Communication inter-services via **OpenFeign**
-
-Le microservice **Candidature** :
-
-- Stocke uniquement `jobId` et `candidatId`
-- Récupère les informations complètes via Feign
-- Propose un endpoint enrichi `/details`
+* **AA1 :** Distinguer les architectures microservices des monolithes en identifiant leurs avantages et contraintes opérationnelles.
+* **AA2 :** Concevoir et développer des services autonomes en respectant les principes de découplage et de responsabilité unique.
+* **AA3 :** Mettre en œuvre la découverte de services pour automatiser la mise en relation dynamique des composants du système.
+* **AA4 :** Configurer une API Gateway pour centraliser le routage des flux et appliquer des filtres transverses.
+* **AA5 :** Gérer la configuration externalisée pour modifier le comportement des services sans redémarrage manuel.
+* **AA6 :** Sécuriser l'architecture via des mécanismes d'authentification et d'autorisation centralisés.
+* **AA7 :** Conteneuriser les applications avec Docker pour assurer un déploiement fluide et reproductible.
+* **AA8 :** Réaliser un projet complet intégrant la communication inter-services et la validation des flux de bout en bout.
 
 ---
 
-## 🔄 Principe de fonctionnement
+## 🏗️ Étude de Cas : Plateforme de Recrutement (Job Board)
 
-1. Le client appelle le microservice **Candidature**.
-2. Le service récupère les données locales.
-3. Il interroge dynamiquement :
-   - Le microservice **Job**
-   - Le microservice **Candidat**
-4. Il retourne une réponse enrichie combinant les données.
+Le projet s'appuie sur un système réel de gestion d'offres d'emploi.
 
----
+### 1. Du Monolithe (Conceptuel) ...
+Initialement, toutes les entités (Candidats, Jobs, Candidatures, Meetings) partagent le même espace et la même base de données.
+* **Schéma :** `class-diagram.jpg`
 
-## 🛠️ Technologies utilisées
+### 2. ... Vers les Domaines Microservices (DDD)
+Pour valider l'**AA2**, nous avons découpé l'application en domaines métier autonomes (**Bounded Contexts**) :
+* **Candidate Domain** (Microservice 1)
+* **Job Domain** (Microservice 2)
+* **Application Domain** (Microservice 3)
+* **Notification Domain** (Microservice 4)
+* **Meeting Domain** (Microservice 5)
 
-- Java 17
-- Spring Boot 3.x
-- Spring Data JPA
-- Spring Web (REST)
-- Spring Cloud OpenFeign
-- Spring Cloud Netflix Eureka
-- MySQL
-- Maven
-- IntelliJ IDEA
+* **Schéma de découpage :** `domain-class-diagram.jpg`
 
 ---
 
-## 📄 Énoncé du workshop
+## 🛠️ Architecture Technique Globale
 
-L’énoncé détaillé du Workshop 4 est disponible au format PDF :
+L'architecture finale (Validation **AA8**) intègre l'ensemble des composants d'infrastructure nécessaires à un environnement de production :
 
-👉 [Télécharger l’énoncé du Workshop 2](https://github.com/badi3a/AWD-Training/blob/W04-OpenFeign/Atelier%20Communication%20entre%20MS%20avec%20OpenFeign.pdf)
+* **API Gateway :** Point d'entrée unique (Spring Cloud Gateway).
+* **Service Discovery :** Annuaire dynamique (Netflix Eureka).
+* **Config Server :** Gestion centralisée des propriétés (Git/Native).
+* **Message Broker :** Communication asynchrone (RabbitMQ).
+* **Identity Provider :** Sécurisation des accès (Keycloak).
 
----
-
-## 📝 Travail à faire (Rendu)
-
-- Configurer Eureka Server
-- Créer les microservices Job, Candidat et Candidature
-- Activer OpenFeign dans le microservice Candidature
-- Implémenter les Feign Clients
-- Créer un endpoint enrichi `/candidature/{id}/details`
-- Tester la communication inter-services
-
+* **Schéma Global :** `microservices-global-architecture.jpg`
 
 ---
 
-## 🧠 Concepts abordés
+## 📦 Stack Technologique
 
-- Architecture microservices
-- Communication synchrone
-- Découverte de services
-- DTO vs Entity
-- Références distantes par identifiant
-- Agrégation de données distribuées
+| Composant | Technologie |
+| :--- | :--- |
+| **Langages** | Java (Spring Boot), Python (FastAPI), Node.js |
+| **Bases de données** | H2, MySQL, MongoDB |
+| **Infrastructure** | Docker, Docker Compose |
+| **Communication** | REST (Synchrone) & RabbitMQ (Asynchrone) |
 
----
-
-## ✅ Rendu attendu
-
-- Eureka fonctionnel
-- Microservices correctement enregistrés
-- Communication Feign opérationnelle
-- Endpoint enrichi fonctionnel
-- Code structuré et respectant les bonnes pratiques
-- Projet poussé sur **GitHub**
-
----
-
-💡 **Conseil :**  
-Démarrez toujours le serveur Eureka avant de lancer l’API Gateway et les microservices.
-
-🚀 Bon courage et bonne implémentation !
 
 ---
 

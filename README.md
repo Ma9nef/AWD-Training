@@ -29,7 +29,7 @@ Initialement, toutes les entités (Candidats, Jobs, Candidatures, Meetings) part
 * **Schéma :** ![class-diagram](https://github.com/badi3a/AWD-Training/blob/main/documentation/diag/class-diagram.png)
 
 ### 2. ... Vers les Domaines Microservices (DDD)
-Pour valider l'**AA2**, nous avons découpé l'application en domaines métier autonomes (**Bounded Contexts**) :
+L'application est découpée en domaines métier autonomes (Bounded Contexts) :
 * **Candidate Domain** (Microservice 1)
 * **Job Domain** (Microservice 2)
 * **Application Domain** (Microservice 3)

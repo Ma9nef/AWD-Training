@@ -26,7 +26,7 @@ Le projet s'appuie sur un système réel de gestion d'offres d'emploi.
 
 ### 1. Du Monolithe (Conceptuel) ...
 Initialement, toutes les entités (Candidats, Jobs, Candidatures, Meetings) partagent le même espace et la même base de données.
-* **Schéma :** `class-diagram.jpg`
+* **Schéma :** [`class-diagram`](https://github.com/badi3a/AWD-Training/blob/main/documentation/diag/class-diagram.png)
 
 ### 2. ... Vers les Domaines Microservices (DDD)
 Pour valider l'**AA2**, nous avons découpé l'application en domaines métier autonomes (**Bounded Contexts**) :
@@ -36,7 +36,7 @@ Pour valider l'**AA2**, nous avons découpé l'application en domaines métier a
 * **Notification Domain** (Microservice 4)
 * **Meeting Domain** (Microservice 5)
 
-* **Schéma de découpage :** `domain-class-diagram.jpg`
+* **Schéma de découpage :** [`domain-class-diagram`](https://github.com/badi3a/AWD-Training/blob/main/documentation/diag/domain-class-diagram.png)
 
 ---
 
@@ -50,7 +50,7 @@ L'architecture finale (Validation **AA8**) intègre l'ensemble des composants d'
 * **Message Broker :** Communication asynchrone (RabbitMQ).
 * **Identity Provider :** Sécurisation des accès (Keycloak).
 
-* **Schéma Global :** `microservices-global-architecture.jpg`
+* **Schéma Global :** `[microservices-global-architecture`](https://github.com/badi3a/AWD-Training/blob/main/documentation/diag/microservices-global-architecture.png)
 
 ---
 
@@ -62,7 +62,7 @@ L'architecture finale (Validation **AA8**) intègre l'ensemble des composants d'
 | **Bases de données** | H2, MySQL, MongoDB |
 | **Infrastructure** | Docker, Docker Compose |
 | **Communication** | REST (Synchrone) & RabbitMQ (Asynchrone) |
-
+| **Front End** | Angular |
 
 ---
 
